@@ -1,23 +1,57 @@
 import "./App.css";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import work from "./assets/work.jpg";
 
 function App() {
   return (
     <>
-      <div className="overflow-hidden">
-        <ul className="flex py-5 px-6 gap-6 justify-end font-medium w-full shadow-sm shadow-[#ECDFCC] overflow-hidden">
-          <AnimatePresence>
+      <div className="overflow-hidden shadow-sm shadow-[#ECDFCC]">
+        <div className="flex py-5 px-6 justify-between font-medium w-full overflow-hidden">
+          <ul className="flex gap-6">
+            <ul className="flex gap-1">
+              <motion.li
+                initial={{ y: 0 }}
+                animate={{ y: [0, -20, 0] }} // Gerakan memantul
+                transition={{
+                  duration: 0.5, // Durasi satu siklus animasi
+                  ease: "easeInOut", // Tipe easing
+                }}
+                className="font-RobotoSlab font-bold"
+              >
+                fadlan
+              </motion.li>
+              <motion.li
+                className="font-RobotoSlab font-bold"
+                initial={{ y: 0 }}
+                animate={{ y: [0, 30, 0] }} // Gerakan memantul
+                transition={{
+                  duration: 1, // Durasi satu siklus animasi
+                  ease: "easeInOut", // Tipe easing
+                }}
+              >
+                zunima
+              </motion.li>
+            </ul>
+            <motion.li
+              className="font-sans"
+              initial={{ opacity: 0, scale: 0.5, y: -500 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              frontend developer
+            </motion.li>
+          </ul>
+          <ul className="flex gap-6">
             <motion.li
               className="cursor-pointer"
               initial={{ opacity: 0, scale: 0.5, x: 500 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 1 }}
               whileHover={{
-                color: "#3C3D37",
+                textDecoration: "line-through",
               }}
             >
-              Home
+              home
             </motion.li>
             <motion.li
               className="cursor-pointer"
@@ -25,10 +59,10 @@ function App() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 1.5 }}
               whileHover={{
-                color: "#3C3D37",
+                textDecoration: "line-through",
               }}
             >
-              About
+              about
             </motion.li>
             <motion.li
               className="cursor-pointer"
@@ -36,13 +70,13 @@ function App() {
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 2 }}
               whileHover={{
-                color: "#3C3D37",
+                textDecoration: "line-through",
               }}
             >
-              Contact
+              contact
             </motion.li>
-          </AnimatePresence>
-        </ul>
+          </ul>
+        </div>
         <div>
           <img
             src={work}
